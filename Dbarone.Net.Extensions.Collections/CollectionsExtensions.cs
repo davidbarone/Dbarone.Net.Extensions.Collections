@@ -81,4 +81,41 @@ public static class CollectionsExtensions
         }
         return result;
     }
+
+    /// <summary>
+    /// Creates a collection out of a set of objects. Individual items can themselves be collections or not.
+    /// </summary>
+    /// <param name="obj1">The current object.</param>
+    /// <param name="obj2">A set of additional objects.</param>
+    /// <returns>Returns a flattened (1 dimensional) collection of all the objects.</returns>
+    public static IEnumerable<object> Union(this object obj1, params object[] obj2)
+    {
+        List<object> results = new List<object>();
+        var enumerableObj1 = obj1 as System.Collections.IEnumerable;
+
+        if (enumerableObj1 != null && obj1.GetType() != typeof(string))
+        {
+            foreach (var item in enumerableObj1)
+                results.Add(item);
+        }
+        else if (obj1 != null)
+            results.Add(obj1);
+        else
+            throw new Exception("error!");
+
+        foreach (var objItem in obj2)
+        {
+            var enumerableItem = objItem as System.Collections.IEnumerable;
+            if (enumerableItem != null && objItem.GetType() != typeof(string))
+            {
+                foreach (var item in enumerableItem)
+                    results.Add(item);
+            }
+            else if (enumerableItem != null)
+                results.Add(enumerableItem);
+            else
+                throw new Exception("error!");
+        }
+        return results;
+    }
 }
