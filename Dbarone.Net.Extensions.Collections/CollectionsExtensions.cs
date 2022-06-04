@@ -101,7 +101,7 @@ public static class CollectionsExtensions
         else if (obj1 != null)
             results.Add(obj1);
         else
-            throw new Exception("error!");
+            throw new Exception("Error: obj1 is invalid.");
 
         foreach (var objItem in obj2)
         {
@@ -111,10 +111,10 @@ public static class CollectionsExtensions
                 foreach (var item in enumerableItem)
                     results.Add(item);
             }
-            else if (enumerableItem != null)
-                results.Add(enumerableItem);
+            else if (objItem != null)
+                results.Add(objItem);
             else
-                throw new Exception("error!");
+                throw new Exception("Error: obj2 is invalid.");
         }
         return results;
     }
