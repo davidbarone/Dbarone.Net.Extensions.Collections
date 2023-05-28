@@ -1,4 +1,7 @@
 # Dbarone.Net.Extensions.Collections
+
+**NOTE: THIS REPOSITORY HAS BEEN ARCHIVED AND IS NO LONGER ACTIVELY MAINTAINED. REFER TO  https://github.com/davidbarone/Dbarone.Net.Extensions FOR ACTIVE DEVELOPMENT.**
+
 A library of .NET extension methods for working with arrays, hash tables, dictionaries and collections.
 
 ## Extension Methods
